@@ -4,9 +4,9 @@
  * Copyright 2016 Yahoo Inc.
  * Licensed under the terms of the MIT license. See LICENSE file in the project root for terms.
  */
-const DEFAULT_SELECTED_BACKGROUND_COLOR = '#5ce600';
-const DEFAULT_SELECTED_TEXT_COLOR = '#000000';
-const DEFAULT_TODAY_BACKGROUND_COLOR = '#CCCCCC';
+const DEFAULT_SELECTED_BACKGROUND_COLOR = '#ec6565';
+const DEFAULT_SELECTED_TEXT_COLOR = '#fff';
+const DEFAULT_TODAY_BACKGROUND_COLOR = '#ec6565';
 
 function getBorderRadiusByShape(scaler, dayShape) {
   if (dayShape === 'square') {
@@ -47,8 +47,9 @@ export function makeStyles(scaler, backgroundColor, textColor, todayBackgroundCo
 
     dayLabelsWrapper: {
       flexDirection: 'row',
+      fontWeight: 'bold',
       borderBottomWidth: 1,
-      borderTopWidth: 1,
+      borderTopWidth: 0,
       paddingTop: 10*scaler,
       paddingBottom: 10*scaler,
       alignSelf: 'center',
@@ -127,17 +128,19 @@ export function makeStyles(scaler, backgroundColor, textColor, todayBackgroundCo
     },
 
     monthLabel: {
-      fontSize: 16*scaler,
+      fontSize: 17*scaler,
       color: '#000',
       marginBottom: 10*scaler,
+      marginLeft: 20*scaler,
       width: 180*scaler,
-      textAlign: 'center'
+      textAlign: 'left',
+      fontWeight: 'bold'
     },
 
     headerWrapper: {
       alignItems: 'center',
       flexDirection: 'row',
-      alignSelf: 'center',
+      
       padding: 5*scaler,
       paddingBottom: 3*scaler,
       backgroundColor: 'rgba(0,0,0,0.0)'

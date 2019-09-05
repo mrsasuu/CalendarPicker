@@ -172,7 +172,7 @@ DaysGridView.propTypes = {
     style: ViewPropTypes.style,
     textStyle: Text.propTypes.style,
   })),
-  disabledDates: PropTypes.oneOfType([PropTypes.array, PropTypes.func]),
+  disabledDates: PropTypes.array,
   minRangeDuration: PropTypes.oneOfType([PropTypes.array, PropTypes.number]),
   maxRangeDuration: PropTypes.oneOfType([PropTypes.array, PropTypes.number]),
 }
