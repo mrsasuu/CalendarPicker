@@ -23,11 +23,13 @@ export default class CalendarPicker extends Component {
       currentMonth: null,
       currentYear: null,
       selectedStartDate: props.selectedStartDate || null,
+      eventDates: props.eventDates || null,
       selectedEndDate: props.selectedEndDate || null,
       styles: {},
       ...this.updateScaledStyles(props),
       ...this.updateMonthYear(props.initialDate)
     };
+
     this.updateScaledStyles = this.updateScaledStyles.bind(this);
     this.updateMonthYear = this.updateMonthYear.bind(this);
     this.handleOnPressPrevious = this.handleOnPressPrevious.bind(this);
@@ -337,6 +339,7 @@ export default class CalendarPicker extends Component {
             month={currentMonth}
             year={currentYear}
             styles={styles}
+            eventDates={this.state.eventDates}
             onPressDay={this.handleOnPressDay}
             disabledDates={disabledDatesTime}
             minRangeDuration={minRangeDurationTime}

@@ -16,6 +16,7 @@ const ViewPropTypes = RNViewPropTypes || View.propTypes;
 export default function DaysGridView(props) {
   const {
     month,
+    eventDates,
     year,
     styles,
     onPressDay,
@@ -53,25 +54,49 @@ export default function DaysGridView(props) {
   const firstWeekDay = firstDayOfMonth.isoWeekday();
 
   // fill up an array of days with the amount of days in the current month
-  const days = Array.apply(null, {length: totalDays}).map(Number.call, Number);
+  const days = Array.apply(null, { length: totalDays }).map(Number.call, Number);
 
   // 7 days in a week.
-  const dayArray = [ 0, 1, 2, 3, 4, 5, 6 ];
+  const dayArray = [0, 1, 2, 3, 4, 5, 6];
 
   // There can be 4 to 6 rows of weeks in a month.
-  const weekArray = [ 0, 1, 2, 3, 4, 5 ];
+  const weekArray = [0, 1, 2, 3, 4, 5];
 
   // Get the starting index, based upon whether we are using monday or sunday as first day.
   const startIndex = (startFromMonday ? firstWeekDay - 1 : firstWeekDay) % 7;
 
+
+  parseFullDateArray = (day, month, year) => {
+    var result = year + "-";
+
+    if (day < 10) {
+      result = result + "0" + day;
+    } else {
+      result = result + day;
+    }
+
+    if (month < 10) {
+      result = result + "-0" + month;
+    } else {
+      result = result + "-" + month;
+    }
+
+    return result;
+  }
+
   function generateDatesForWeek(i) {
+
     return dayArray.map(dayIndex => {
+
       if (i === 0) { // for first row, let's start showing the days on the correct weekday
         if (dayIndex >= startIndex) {
+
           if (days.length > 0) {
             const day = days.shift() + 1;
+              
             return (
               <Day
+                withDate={eventDates.includes(parseFullDateArray(day,month+1,year))}
                 key={day}
                 day={day}
                 month={month}
@@ -108,8 +133,10 @@ export default function DaysGridView(props) {
       } else {
         if (days.length > 0) {
           const day = days.shift() + 1;
+
           return (
             <Day
+              withDate={eventDates.includes(parseFullDateArray(day,month+1,year))}
               key={day}
               day={day}
               month={month}
@@ -141,11 +168,11 @@ export default function DaysGridView(props) {
 
   return (
     <View style={styles.daysWrapper}>
-      { weekArray.map(weekIndexOfMonth => (
-          <View key={weekIndexOfMonth} style={styles.weekRow}>
-            { generateDatesForWeek(weekIndexOfMonth) }
-          </View>
-        ))
+      {weekArray.map(weekIndexOfMonth => (
+        <View key={weekIndexOfMonth} style={styles.weekRow}>
+          {generateDatesForWeek(weekIndexOfMonth)}
+        </View>
+      ))
       }
     </View>
   );

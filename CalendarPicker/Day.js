@@ -7,10 +7,12 @@ import {
 import PropTypes from 'prop-types';
 import { Utils } from './Utils';
 import moment from 'moment';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 export default function Day(props) {
   const {
     day,
+    withDate,
     month,
     year,
     styles,
@@ -166,7 +168,9 @@ export default function Day(props) {
           <Text style={[styles.dayLabel, textStyle, customTextStyle, selectedDayColorStyle]}>
             { day }
           </Text>
+          <Text style={{color: '#ec6565', fontSize: wp('10%'),position: 'absolute',width: '100%', textAlign: 'center',bottom: -hp('2%'), display: withDate == true ? 'flex' : 'none'}}>.</Text>
         </TouchableOpacity>
+        
       </View>
     );
   }
