@@ -168,7 +168,7 @@ export default function Day(props) {
           <Text style={[styles.dayLabel, textStyle, customTextStyle, selectedDayColorStyle]}>
             { day }
           </Text>
-          <Text style={{color: '#ec6565', fontSize: wp('10%'),position: 'absolute',width: '100%', textAlign: 'center',bottom: -hp('2%'), display: withDate == true ? 'flex' : 'none'}}>.</Text>
+           <Text style={{color: '#ec6565', fontSize: wp('10%'),position: 'absolute',width: '100%', textAlign: 'center',bottom: -hp('2%'), display: withDate == true ? 'flex' : 'none'}}>{withDate == true ? '.' : ''}</Text>
         </TouchableOpacity>
         
       </View>
