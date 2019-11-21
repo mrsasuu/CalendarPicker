@@ -164,12 +164,14 @@ export default function Day(props) {
         <TouchableOpacity
           disabled={!enableDateChange}
           style={[customDateStyle, daySelectedStyle, propSelectedDayStyle ]}
-          onPress={() => onPressDay(day) }>
-          <Text style={[styles.dayLabel, textStyle, customTextStyle, selectedDayColorStyle]}>
-            { day }
-          </Text>
-           <Text style={{color: '#ec6565', fontSize: wp('10%'),position: 'absolute',width: '100%', textAlign: 'center',bottom: -hp('2%'), display: withDate == true ? 'flex' : 'none'}}>{withDate == true ? '.' : ''}</Text>
-        </TouchableOpacity>
+          onPress={() => onPressDay(day) }> 
+          <View>
+            <Text style={[styles.dayLabel, textStyle, customTextStyle, selectedDayColorStyle]}>
+              {day}
+            </Text>
+            <Text style={{ color: '#ec6565', fontSize: wp('10%'), position: 'absolute', bottom: 0, marginBottom: '-77%', width: '100%', textAlign: 'center', display: withDate == true ? 'flex' : 'none' }}>{withDate == true ? '.' : ''}</Text>
+          </View>
+      	</TouchableOpacity>
         
       </View>
     );
