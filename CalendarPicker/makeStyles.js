@@ -149,7 +149,8 @@ export function makeStyles(scaler, backgroundColor, textColor, todayBackgroundCo
     monthSelector: {
       marginBottom: 10*scaler,
       fontSize: 14*scaler,
-      width: 80*scaler
+      marginHorizontal: 10*scaler,
+      color: "#ff5a60"
     },
 
     prev: {

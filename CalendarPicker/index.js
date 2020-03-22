@@ -321,8 +321,8 @@ export default class CalendarPicker extends Component {
             currentMonth={currentMonth}
             currentYear={currentYear}
             initialDate={moment(initialDate)}
-            //onPressPrevious={this.handleOnPressPrevious}
-            //onPressNext={this.handleOnPressNext}
+            onPressPrevious={this.handleOnPressPrevious}
+            onPressNext={this.handleOnPressNext}
             months={months}
             previousTitle={previousTitle}
             nextTitle={nextTitle}
